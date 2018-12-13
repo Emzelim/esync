@@ -23,7 +23,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
 
-        // test
+        // test2
 
         // $tags = [];
         while ($results = $result->fetch_assoc()){

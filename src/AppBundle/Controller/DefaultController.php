@@ -22,10 +22,6 @@ class DefaultController extends Controller
         $result = $mysqli->query($sql_query);
         $em = $this->getDoctrine()->getManager();
 
-        $tag = new Tags();
-        Tags::class;
-        ech
-
 
 
 

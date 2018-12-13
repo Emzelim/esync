@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+        {% block styles %}
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+        {% endblock %}
+
+{% block body %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+            <h1>Variable d'Esync</h1>
+            <p class="leading">Variables mises à votre disposition</p>
+            <p>
+            <table class="table table-striped" id="tags">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom du tag</th>
+                    <th scope="col">Valeur</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for tag in tags %}
+                    {% if is_granted("ROLE_ADMIN") or tag.Visible%}
+                        <tr>
+                            <th scope="row">{{ tag.Id }}</th>
+                            <td>{{ tag.Nom }}</td>
+                            <td>{{ tag.Valeur }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+
+            </table>
+            </p>
+
+
+
+        Connecté en tant que {{ app.user.username }}
+        -
+        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+
+    {% else %}
+        <h1 class="mt-5">Bienvenue sur la gestion ESync</h1>
+        <p class="lead">Interface sécurisé, veuillez vous <a href="{{ path('fos_user_security_login') }}">connecter </a>pour acceder au portail de gestion</p>
+    {% endif %}
+
+{% endblock %}
+        {% block scripts %}
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+            <script>
+                $(document).ready(function () {
+                    $('#tags').DataTable();
+                });
+            </script>
+        {% endblock %}
+

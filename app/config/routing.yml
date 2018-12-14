@@ -15,3 +15,6 @@ apropros:
     path:   /apropos
     defaults: { _controller: app }
 
+personalisation:
+    path:   /personalisation
+    ressource: { _controller: }

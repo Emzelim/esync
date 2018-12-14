@@ -34,6 +34,11 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home </a>
                 </li>
+                {% if is_granted("ROLE_USER") %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Personalisation </a>
+                </li>
+                {% endif %}
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

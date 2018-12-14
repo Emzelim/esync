@@ -64,7 +64,7 @@ class Tags
      */
     public function setUserList($user_list)
     {
-        $this->user_list = $user_list;
+        $this->user_list += $user_list + ",";
     }
 
     public function getId()

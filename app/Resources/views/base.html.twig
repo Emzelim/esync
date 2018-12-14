@@ -1,7 +1,7 @@
 ### base.html.twig
 
-<!doctype html>
 <html lang="fr">
+<!doctype html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -22,7 +22,7 @@
 <body>
 
 <header>
-    <!-- Fixed navbar -->
+    <!-- Fixed n(fdf)avbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Esync</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -39,6 +39,7 @@
                     <a class="nav-link" href="#">Personalisation </a>
                 </li>
                 {% endif %}
+
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
